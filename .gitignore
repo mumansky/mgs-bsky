@@ -1,0 +1,8 @@
+*.mp4
+*.jpg
+*.pyc
+ffmpeg
+credentials.py
+credentialsbsky.py
+.DS_Store
+*.db
