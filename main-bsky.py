@@ -1,5 +1,5 @@
 from atproto import Client
-from credentials import *
+from credentialsbsky import *
 from pathlib import Path
 import cv2
 import random
@@ -10,7 +10,7 @@ import traceback
 
 
 client = Client()
-client.login('randommetalgear.bsky.social', 'APP_PASSWORD_HERE')
+client.login('randommetalgear.bsky.social', app_password)
 
 #con = sqlite3.connect("mgs.db")
 #cur = con.cursor()
