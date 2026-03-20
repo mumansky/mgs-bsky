@@ -4,8 +4,8 @@ from datetime import datetime, timezone, timedelta
 
 # -----------------------------------------------
 # EDIT THIS before running each week
-RECAP_INTRO = "Weekly @randommetalgear.bsky.social recap"
-DRY_RUN = True  # Set to False to actually post
+RECAP_INTRO = "the most popular random mgs posts in the past 7 days are..."
+DRY_RUN = False
 # -----------------------------------------------
 
 client = Client()
@@ -61,13 +61,13 @@ top5 = sorted(eligible, key=lambda p: p['avg_rank'])[:5]
 
 print("\nTop 5 by rank averaging:")
 for i, p in enumerate(top5, 1):
-    print(f"{i}. avg rank {p['avg_rank']:.1f} — {p['likes']} likes, {p['likes_per_hour']:.2f}/hr — {p['date']}")
+    print(f"{i}. avg rank {p['avg_rank']:.1f} - {p['likes']} likes, {p['likes_per_hour']:.2f}/hr - {p['date']}")
     print(f"   https://bsky.app/profile/randommetalgear.bsky.social/post/{p['uri'].split('/')[-1]}")
 
 print("\n--- PREVIEW ---")
 print(f"Intro post: {RECAP_INTRO}")
 for i, p in enumerate(top5, 1):
-    print(f"Reply {i}: #{i} — quote of {p['uri'].split('/')[-1]} ({p['likes']} likes, {p['likes_per_hour']:.2f}/hr)")
+    print(f"Reply {i}: #{i} - quote of {p['uri'].split('/')[-1]} ({p['likes']} likes, {p['likes_per_hour']:.2f}/hr)")
 
 if not DRY_RUN:
     intro = client.send_post(text=RECAP_INTRO)
@@ -82,4 +82,4 @@ if not DRY_RUN:
         parent = {'uri': reply.uri, 'cid': reply.cid}
     print("Posted!")
 else:
-    print("(dry run — set DRY_RUN = False to post)")
+    print("(dry run - set DRY_RUN = False to post)")
