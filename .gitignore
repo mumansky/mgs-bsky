@@ -7,3 +7,4 @@ credentialsbsky.py
 .DS_Store
 *.db
 CLAUDE.md
+.venv/
