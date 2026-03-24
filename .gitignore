@@ -1,5 +1,6 @@
 *.mp4
 *.jpg
+*.webp
 *.pyc
 ffmpeg
 credentials.py

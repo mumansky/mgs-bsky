@@ -5,6 +5,7 @@ After=network.target
 [Service]
 User=mark
 WorkingDirectory=/home/mark/mgs
+Environment=PYTHONIOENCODING=utf-8
 ExecStart=/home/mark/.env/bin/python3 -u /home/mark/mgs/main-bsky.py
 Restart=always
 RestartSec=10
